@@ -13,16 +13,16 @@ export const DeleteItem = ({ id, date, removeItem }) => {
     setOpenAlertLoad(true);
     const baseUrl = window.location.origin;
 
-    // console.log("a");
-    // const response = await fetch(`${baseUrl}/api/items`, {
-    // cache: "no-store",
-    // method: "DELETE",
-    // headers: {
-    // "Content-Type": "application/json",
-    // },
-    // mode: "same-origin",
-    // body: JSON.stringify({ _id: id }),
-    // });
+    console.log("a");
+    const response = await fetch(`${baseUrl}/api/items`, {
+      cache: "no-store",
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "same-origin",
+      body: JSON.stringify({ _id: id }),
+    });
 
     removeItem({ action: "Remove", oldData: { _id: id, date } });
     setOpenAlertLoad(false);

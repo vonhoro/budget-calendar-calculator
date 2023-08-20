@@ -21,17 +21,17 @@ export const CreateItem = ({ Data, afterSubmit }) => {
   const onSubmit = async (values, { setSubmitting, setFieldError }) => {
     setSubmitting(true);
     const baseUrl = window.location.origin;
-    // const response = await fetch(`${baseUrl}/api/items`, {
-    // cache: "no-store",
-    // method: "POST",
-    // headers: {
-    // "Content-Type": "application/json",
-    // },
-    // mode: "same-origin",
-    // body: JSON.stringify(values),
-    // });
-    // const newData = await response.json();
-    const newData = { ...values, _id: "325rggdddddgs" };
+    const response = await fetch(`${baseUrl}/api/items`, {
+      cache: "no-store",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "same-origin",
+      body: JSON.stringify(values),
+    });
+    const newData = await response.json();
+    // const newData = { ...values, _id: "325rggdddddgs" };
     afterSubmit({ newData, action: "Add" });
     setSubmitting(false);
     onClose();

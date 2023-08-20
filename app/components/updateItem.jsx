@@ -22,17 +22,17 @@ export const UpdateItem = ({ Data, updateInfo, index }) => {
   const onSubmit = async (values, { setSubmitting, setFieldError }) => {
     setSubmitting(true);
     const baseUrl = window.location.origin;
-    // const response = await fetch(`${baseUrl}/api/items`, {
-    // cache: "no-store",
-    // method: "PUT",
-    // headers: {
-    // "Content-Type": "application/json",
-    // },
-    // mode: "same-origin",
-    // body: JSON.stringify(values),
-    // });
-    // const newData = await response.json();
-    const newData = values;
+    const response = await fetch(`${baseUrl}/api/items`, {
+      cache: "no-store",
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "same-origin",
+      body: JSON.stringify(values),
+    });
+    const newData = await response.json();
+    // const newData = values;
 
     updateInfo({
       oldData: Data,
